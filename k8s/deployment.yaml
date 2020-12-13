@@ -19,21 +19,7 @@ spec:
         image: public.ecr.aws/y5u7j3p0/payment:latest
         ports:
         - containerPort: 5005
-        env:
-        - name: MONGO_URL
-          valueFrom:
-          secretKeyRef:
-            name: mongo-secret
-            key: MONGO_URL
-        - name: MONGO_ID
-          valueFrom:
-          secretKeyRef:
-            name: mongo-secret
-            key: MONGO_ID
-        - name: MONGO_PASS
-          valueFrom:
-          secretKeyRef:
-            name: mongo-secret
-            key: MONGO_PASS
-  restartPolicy: Never
+        envFrom:
+        - secretRef:
+          name: mongo-secret
 
