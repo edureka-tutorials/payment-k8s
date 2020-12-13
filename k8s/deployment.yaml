@@ -15,11 +15,10 @@ spec:
         app: payment
     spec:
       containers:
-      - name: payment
-        image: public.ecr.aws/y5u7j3p0/payment:latest
-        ports:
-        - containerPort: 5005
-        envFrom:
-        - secretRef:
-          name: mongo-secret
-
+        - name: payment
+          image: public.ecr.aws/y5u7j3p0/payment:latest
+          ports:
+            - containerPort: 5005
+          envFrom:
+            - secretRef:
+                name: mongo-secret
